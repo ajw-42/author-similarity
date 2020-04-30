@@ -7,11 +7,26 @@ Approaches used:
 - word2vec embeddings trained from scratch and LASER pre-trained embeddings to create user-level vectors.
 - Cosine distances, FAISS, T-SNE, and k-means clustering to measure/visualize similarity.
 
-The LASER embeddings with the FAISS similartiy metrics appear to perform best. However, even for these relatively small datasets, LASER requires GPU support while word2vec runs fine on CPU even when training from scratch and the results are stil good.
+The LASER embeddings with the FAISS similartiy metrics appear to perform best. However, even for these relatively small datasets, LASER requires GPU support while word2vec runs fine on CPU even when training from scratch and the results are still good. So the size of your dataset is another factor.
 
 Here's a quick summary of the results:
 
 **Twitter dataset**
+
+| Original Author  | Most Similar Authors | Embedding Method | Similarity Metric
+| ------------- | ------------- | ------------- | ------------- |
+| GOPLeader | RepRoybalAllard, RepTipton, keithellison, SteveScalise | LASER (pre-trained embeddings) | cosine distance |
+| GOPLeader  | RepRoKhanna, RepSusanDavis, RepDougCollins, SanfordBishop | LASER (pre-trained embeddings) | FAISS |
+| NancyPelosi | RepAbraham, RepKClark, RepJackyRosen, RepScottPeters	 | LASER (pre-trained embeddings) | cosine distance 
+| NancyPelosi  | MikeKellyPA, RepJoseSerrano, PeterWelch, RepHuizenga | LASER (pre-trained embeddings) | FAISS |
+| RepAdamSchiff | DrNealDunnFL2, USRepGaryPalmer, RepKristiNoem, RepWebster | LASER (pre-trained embeddings) | cosine distance 
+| RepAdamSchiff  | Raul_Labrador, DrNealDunnFL2, TXRandy14, RepTedLieu | LASER (pre-trained embeddings) | FAISS |
+| RepBetoORourke | RepJuanVargas, RepMarkWalker, RepRickAllen, RepCicilline | LASER (pre-trained embeddings) | cosine distance |
+| RepBetoORourke  | RepBarragan, RepJohnLarson, RepRaulGrijalva, chakafattah | LASER (pre-trained embeddings) | FAISS |
+| SpeakerRyan | RepHuizenga, repdinatitus, RepCharlieCrist, RepTomRice | LASER (pre-trained embeddings) | cosine distance |
+| SpeakerRyan  | RosLehtinen, RepHastingsFL, RepOHalleran, RepByrne	 | LASER (pre-trained embeddings) | FAISS |
+| SteveKingIA | keithellison, RepRoybalAllard, RepTipton, janschakowsky | LASER (pre-trained embeddings) | cosine distance |
+| SteveKingIA  | SamsPressShop, davereichert, RepThomasMassie, daveloebsack | LASER (pre-trained embeddings) | FAISS |
 
 **Reddit dataset**
 
