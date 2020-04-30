@@ -1,13 +1,17 @@
 # author-similarity
-This repo looks at a few different ways of measuring similarity among authors of social media posts. These approaches might be helpful for quantifying similarity among known users or for identifying new users who are similar 
+This repo looks at a few different ways of measuring similarity among authors of social media posts. These approaches might be helpful for quantifying similarity among known users or for identifying new users who are similar to a group of known users.
 
-All notebooks use a [Kaggle dataset] (https://www.kaggle.com/rootuser/worldnews-on-reddit/data) of posts in the r/worldnews subreddit from 2008 to 2017.
+I use two Kaggle datasets: one of [Reddit posts] (https://www.kaggle.com/rootuser/worldnews-on-reddit/data) in the r/worldnews subreddit from 2008 to 2017 and another of [Twitter posts](https://www.kaggle.com/kapastor/democratvsrepublicantweets) from US politicians.
 
 Approaches used:
-- word2vec embeddings trained from scratch and LASER pre-trained embeddings to create user-level vectors. Although I haven't used a formal performance metric, the LASER embeddings appear to perform better.
-- Cosine distances, T-SNE, FAISS, and k-means clustering to measure similarity.
+- word2vec embeddings trained from scratch and LASER pre-trained embeddings to create user-level vectors.
+- Cosine distances, FAISS, T-SNE, and k-means clustering to measure/visualize similarity.
+
+The LASER embeddings with the FAISS similartiy metrics appear to perform best. However, even for these relatively small datasets, LASER requires GPU support while word2vec runs fine on CPU even when training from scratch and the results are stil good.
 
 Here's a quick summary of the results:
+
+**Twitter dataset**
 
 **Reddit dataset**
 
@@ -33,5 +37,3 @@ Here's a quick summary of the results:
 | 0boy | gregwont, rajsaxena, saute, aenea | word2vec (trained from scratch)  | FAISS |
 | 0boy  | Kyusu, Imagineti, pastr, dzneill | LASER (pre-trained embeddings) | cosine distance |
 | 0boy  | dynamohum, Kleenex1, louis_xiv42, mhughes3500 | LASER (pre-trained embeddings) | FAISS |
-
-**Twitter dataset**
